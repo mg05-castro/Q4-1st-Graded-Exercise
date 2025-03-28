@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width", initial-scale=1>
+  <meta name="author" content="CASTRO, Jara Miel G.">
+  <meta name="description" content="A site that makes the given input of guests at a birthday party to sing one word of the Happy Birthday song per guest ">
+  <meta name="keywords" content="Happy Birthday, Node.js, Forms, HBS">
+  <title>Castro - CS 3 </title>
+  <!-- using the w3.css framework to show how predefined css classes can be used inside an html document.  -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <!-- local css property definitions to further enhance the page -->
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="favicon.png" type="image/x-icon" />
+
+</head>
+
+<!--- classes that starts with w3 are defined inside w3.css -->
+<body class="w3-container w3-auto">
+
+  <!-- do define the navigation bar using classes to define a button styled as a link
+      take note: just a demonsration on how it can be used. Responsive to the size of the viewport
+  -->
+  <div class="w3-bar w3-black">
+    <a href="/" class="w3-bar-item w3-button w3-mobile">Home</a>
+    <a href="#" class="w3-bar-item w3-button w3-mobile">Happy</a> 
+  </div>
+
+
+  <header class="w3-container" id="header" > 
+    <h1>CASTRO, Jara Miel G. - 9-Mg - Mar 2025</h1>
+    <h2> Birthday </h2>
+  </header>
+
+  <section class="w3-container" id="input"> 
+    <h2>Output</h2>
+    <!-- Place your output here -->
+
+    {{#if error}}
+    <script>
+    alert('{{error}}');
+    window.location.href = "";
+    </script>
+  
+    {{/if}}
+    <p> name: {{happyName}} </p>
+    <p> gender: {{happyGender}} </p>
+    <p> number: {{happyNum}} </p>
+    {{#each going}} <!-- outputs each going guest -->
+    <p>name: {{gName}}</p>
+    <p>checkbox: {{gCheck}}</p>
+    {{/each}}
+    
+    {{#each notGoing}} <!-- outputs each non-going guest -->
+    <p>name: {{gName}}</p>
+    <p>checkbox: {{gCheck}}</p>
+    {{/each}}
+
+  <h2>Happy Birthday Song</h2>
+
+  {{#each singing}}
+  <p>
+    {{this.[0]}}: {{this.[1]}}
+  </p>
+  {{/each}}
+  </section>
+
+  <footer class="w3-container ">
+    <p> &copy; 2025 CASTRO </p>
+    <cite>Favicon.io - The ultimate Favicon generator (Free). (n.d.). https://favicon.io/</cite>
+    <br>
+    <cite>Servañez, V. 2025</cite>
+  </footer>
+
+  
+</body>
+
+</html>
